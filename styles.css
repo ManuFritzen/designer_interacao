@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 100vh;
+    background: linear-gradient(to bottom, pink, white );
+}
+
+h1{
+    text-align: center;
+    margin-top: 5%;
+    color: gray;
+}
+
+.trab01{
+    width: 100%;
+    padding: 5%;
+    
+}
+
+.trab01 > a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.trab01 > a > img{
+    width: 200px;
+}
+

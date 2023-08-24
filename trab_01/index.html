@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>placarimaginario.com</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="inicio">
+    <img src="./images/logo_trab01.png" class="logo" alt="logo da página">
+    <button id="comecarButton" class="btnComecar">COMEÇAR</button>
+  </header>
+  <div id="card"></div>
+  <!-- <div class="card etapa1" >
+    <div id="card-content">
+      <div id="card-title">
+        <h2>Informe os times</h2>
+        <div class="underline-title"></div>
+      </div>
+      <form method="post" class="form">
+        <label for="time1">
+            Time 1
+        </label>
+        <div class="inputs">
+          <input id="time1" class="form-content" type="text" name="time1" autocomplete="off" required />
+          <input type="color" name="time1Color" id="time1Color">
+        </div>
+        <div class="form-border"></div>
+        <label for="time2">
+          Time 2
+        </label>
+        <div class="inputs">
+          <input id="time2" class="form-content" type="text" name="time2" autocomplete="off" required />
+          <input type="color" name="time2Color" id="time2Color">
+        </div>        
+        <div class="form-border"></div>
+        <label for="time3">
+          Time 3
+        </label>
+        <div class="inputs">
+          <input id="time3" class="form-content" type="text" name="time3" autocomplete="off" required />
+          <input type="color" name="time3Color" id="time3Color">
+        </div>        
+        <div class="form-border"></div>
+        <label for="time4">
+          Time 4
+        </label>
+        <div class="inputs">
+          <input id="time4" class="form-content" type="text" name="time4" autocomplete="off" required />
+          <input type="color" name="time4Color" id="time4Color">
+        </div>        
+        <div class="form-border"></div>
+        <button id="submitToNext">AVANÇAR -></button>        
+      </form>
+    </div>
+  </div>
+
+  ETAPA 02
+
+  <div class="card etapa2" >
+    <div id="card-content">
+      <div id="card-title">
+        <h2>JOGO 1 - SEMIFINAL</h2>
+        <P>Informe a quantidade de gols</P>
+      </div>
+      <form method="post" class="form">
+        <div class="jogo1Semi">
+          <div class="divTime1">
+            <label for="time1Semi">
+                Time 1
+            </label>
+            <input type="number" name="time1Semi" id="time1Semi" min="0">
+          </div>
+          <p>x</p>
+          <div class="divTime2">
+            <label for="time2Semi">
+                Time 2
+            </label>
+            <input type="number" name="time2Semi" id="time2Semi" min="0">
+          </div>
+        </div>
+        <div class="penaltJogo1">
+          <h2>DEU PENALT!!</h2>
+          <p>Informe quem venceu nos penalts</p>
+          <select name="quemvenceu" id="quemvenceu">
+            <option value="time1">Time 1</option>
+            <option value="time2">Time 2</option>
+          </select>
+        </div>        
+        <input id="submit-btn" type="submit" name="submit" value="AVANÇAR  ->" />
+      </form>
+    </div>
+  </div>
+  <div class="card etapa2" >
+    <div id="card-content">
+      <div id="card-title">
+        <h2>JOGO 2 - SEMIFINAL</h2>
+        <P>Informe a quantidade de gols</P>
+      </div>
+      <form method="post" class="form">
+        <div class="jogo2Semi">
+          <div class="divTime3">
+            <label for="time3Semi">
+                Time 3
+            </label>
+            <input type="number" name="time3Semi" id="time3Semi" min="0">
+          </div>
+          <p>x</p>
+          <div class="divTime4">
+            <label for="time4Semi">
+                Time 4
+            </label>
+            <input type="number" name="time4Semi" id="time4Semi" min="0">
+          </div>
+        </div>
+        <div class="penaltJogo2">
+          <h2>DEU PENALT!!</h2>
+          <p>Informe quem venceu nos penalts</p>
+          <select name="quemvenceu" id="quemvenceu">
+            <option value="time3">Time 3</option>
+            <option value="time4">Time 4</option>
+          </select>
+        </div>        
+        <input id="submit-btn" type="submit" name="submit" value="AVANÇAR  ->" />
+      </form>
+    </div>
+  </div>
+
+  ETAPA 03
+
+  <div class="card etapa3" >
+    <div id="card-content">
+      <div id="card-title">
+        <h2>JOGO DA FINAL</h2>
+        <P>Informe a quantidade de gols</P>
+      </div>
+      <form method="post" class="form">
+        <div class="jogoFinal">
+          <div class="divTime1Final">
+            <label for="time1Final">
+                Time 1 final
+            </label>
+            <input type="number" name="time1Final" id="time1Final" min="0">
+          </div>
+          <p>x</p>
+          <div class="divTime2Final">
+            <label for="time2Final">
+                Time 2 final
+            </label>
+            <input type="number" name="time2Final" id="time2Final" min="0">
+          </div>
+        </div>
+        <div class="penaltFinal">
+          <h2>DEU PENALT!!</h2>
+          <p>Informe quem venceu nos penalts</p>
+          <select name="quemvenceu" id="quemvenceu">
+            <option value="time1Final">Time 1 final</option>
+            <option value="time2Final">Time 2 final</option>
+          </select>
+        </div>        
+        <input id="submit-btn" type="submit" name="submit" value="AVANÇAR  ->" />
+      </form>
+    </div>
+  </div>
+ETAPA FINAL
+
+  <div class="card etapaFinal" >    
+   
+    <h2>O TIME</h2>
+    <P class="timeVencedor">TIME</P>
+    <h2>VENCEU!!</h2>
+         
+  </div> -->
+ 
+  
+  
+</body>
+<script src="./script.js"></script>
+</html>
