@@ -1,3 +1,4 @@
+//Primeira tela, pegando elementos do header do html
 const buttonStart = document.getElementById("comecarButton");
 const stageOne = document.querySelector('.etapa1');
 const logo = document.querySelector('.logo');
@@ -8,8 +9,10 @@ function start() {
     startStage1();
 }
 
+//Iniciando a simulação
 buttonStart.addEventListener("click", start);
 
+//Criando um JSON de variaveis
 let time = [
     { id: "time1", label: "Time 1", color: "#000000", name: "", gols: 0 },
     { id: "time2", label: "Time 2", color: "#000000", name: "", gols: 0 },
@@ -17,14 +20,12 @@ let time = [
     { id: "time4", label: "Time 4", color: "#000000", name: "", gols: 0 }
 ]
 
+//esvaziar conteudo da div
 function emptyContainer() {
     document.getElementById("card").innerHTML = "";
 }
-function activateButton(valido) {
-    const buttonNext = document.getElementById("submitToNext");
-    buttonNext.disabled = !valido;
-}
 
+//função para criar tela de escolha de times e suas cores
 function startStage1() {
     let card = document.getElementById("card");
     let cardContent = document.createElement("div");
@@ -95,9 +96,12 @@ function startStage1() {
     cardContent.appendChild(form);
 }
 
+//Criando variáveis para armazenar os resultados da semifinal
 let Semi1Vencedor;
 let Semi2Vencedor;
 
+
+//função para criar tela e funcionalidades do primeiro jogo da semifinal
 function startStage2() {
     let card = document.getElementById("card");
     let cardContent = document.createElement("div");
@@ -234,6 +238,8 @@ function startStage2() {
     form.appendChild(buttonGo);
 }
 
+
+//Fução para criar tela e funcionalidades do segundo jogo da semifinal
 function startStage3() {
     let card = document.getElementById("card");
     let cardContent = document.createElement("div");
@@ -374,7 +380,7 @@ function startStage3() {
 
 let vencedorTorneio;
 
-
+//Função para criar tela e funcionalidade do jogo da final
 function startStage4() {
     time[0].gols=0;
     time[1].gols=0;
@@ -519,6 +525,8 @@ function startStage4() {
     form.appendChild(buttonGo);
 }
 
+
+//Função para mostrar o resultado da fo torneio na tela
 function startStage5(){
     let vencedorColor;
 
