@@ -46,7 +46,7 @@ function startStage1() {
     let form = document.createElement("form");
     form.setAttribute("class", "form");
 
-    for (let t = 0; t < 4; t++) {
+    for(let t=0; t<4; t++){
         let label = document.createElement("label");
         label.setAttribute("for", time[t].id);
         label.innerText = (time[t]).label;
@@ -82,8 +82,8 @@ function startStage1() {
     buttonGo.innerText = "AVANÇAR ->";
     buttonGo.addEventListener("click", (e) => {
         e.preventDefault();
-        for(let i = 0; i < time.length; i++) {
-            if (time[i].name == "") {
+        for(let i = 0; i<time.length; i++){
+            if(time[i].name == ""){
                 alert("Por favor, preencha todos os campos corretamente antes de avançar.");
                 return;
             }
@@ -439,7 +439,7 @@ function startStage4() {
     labelTime2Final.innerText = Semi2Vencedor;
     divTime2Final.appendChild(labelTime2Final);
     let inputGolsTime2Final = document.createElement("input");
-    inputGolsTime2Final.setAttribute("id", "time2Semi");
+    inputGolsTime2Final.setAttribute("id", "time2Final");
     inputGolsTime2Final.setAttribute("type", "number");
     inputGolsTime2Final.setAttribute("min", "0");
     inputGolsTime2Final.setAttribute("placeholder", "0");
@@ -530,7 +530,7 @@ function startStage4() {
 function startStage5(){
     let vencedorColor;
 
-    for (let i = 0; i < time.length; i++){
+    for(let i=0; i<time.length; i++){
         if(time[i].name == vencedorTorneio){
             vencedorColor = time[i].color;
         }

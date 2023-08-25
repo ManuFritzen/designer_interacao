@@ -102,7 +102,6 @@ input:focus{
   box-shadow: 0px 1px 18px #7b807d;
 }
 .form {
-  align-items: left;
   display: flex;
   flex-direction: column;
 }
