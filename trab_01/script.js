@@ -3,7 +3,6 @@ const stageOne = document.querySelector('.etapa1');
 const logo = document.querySelector('.logo');
 
 function start() {
-
     logo.style.width = '15%';
     buttonStart.style.display = 'none';
     startStage1();
@@ -12,10 +11,10 @@ function start() {
 buttonStart.addEventListener("click", start);
 
 let time = [
-    { id: "time1", label: "Time 1", color: "#00000f", name: "", gols: 0 },
-    { id: "time2", label: "Time 2", color: "#00000f", name: "", gols: 0 },
-    { id: "time3", label: "Time 3", color: "#00000f", name: "", gols: 0 },
-    { id: "time4", label: "Time 4", color: "#00000f", name: "", gols: 0 }
+    { id: "time1", label: "Time 1", color: "#000000", name: "", gols: 0 },
+    { id: "time2", label: "Time 2", color: "#000000", name: "", gols: 0 },
+    { id: "time3", label: "Time 3", color: "#000000", name: "", gols: 0 },
+    { id: "time4", label: "Time 4", color: "#000000", name: "", gols: 0 }
 ]
 
 function emptyContainer() {
@@ -24,15 +23,6 @@ function emptyContainer() {
 function activateButton(valido) {
     const buttonNext = document.getElementById("submitToNext");
     buttonNext.disabled = !valido;
-}
-
-function validate(form) {
-    for (let t = 0; t < time.length; t++) {
-        if (time[t].name.trim() === "" || time[t].color === "#000000") {
-            return false;
-        }
-    }
-    return true;
 }
 
 function startStage1() {
@@ -65,11 +55,10 @@ function startStage1() {
         divInputs.setAttribute("class", "inputs");
         let inputName = document.createElement("input");
         inputName.setAttribute("id", time[t].id);
-        inputName.setAttribute("class", "forma-content");
+        inputName.setAttribute("class", "form-content");
         inputName.setAttribute("type", "text");
         inputName.addEventListener("change", () => {
             time[t].name = inputName.value;
-            activateButton(validate("form"));
         });
         divInputs.appendChild(inputName);
 
@@ -78,7 +67,6 @@ function startStage1() {
         inputColor.setAttribute("type", "color");
         inputColor.addEventListener("change", () => {
             time[t].color = inputColor.value;
-            activateButton(validate("form"));
         });
         divInputs.appendChild(inputColor);
         form.appendChild(divInputs);
@@ -91,10 +79,13 @@ function startStage1() {
     let buttonGo = document.createElement("button");
     buttonGo.setAttribute("id", "submitToNext");
     buttonGo.innerText = "AVANÇAR ->";
-    buttonGo.addEventListener("click", () => {
-        if (!validate("form")) {
-            alert("Por favor, preencha todos os campos corretamente antes de avançar.");
-            return;
+    buttonGo.addEventListener("click", (e) => {
+        e.preventDefault();
+        for(let i = 0; i < time.length; i++) {
+            if (time[i].name == "") {
+                alert("Por favor, preencha todos os campos corretamente antes de avançar.");
+                return;
+            }
         }
         emptyContainer();
         startStage2();
@@ -146,7 +137,6 @@ function startStage2() {
     inputGolsTime1.setAttribute("placeholder", "0");
     inputGolsTime1.addEventListener("change", () => {
         time[0].gols = inputGolsTime1.value;
-        activateButton(validate("form"));
     });
     divTime1.appendChild(inputGolsTime1);
 
@@ -169,7 +159,6 @@ function startStage2() {
     inputGolsTime2.setAttribute("placeholder", "0");
     inputGolsTime2.addEventListener("change", () => {
         time[1].gols = inputGolsTime2.value;
-        activateButton(validate("form"));
     });
     divTime2.appendChild(inputGolsTime2);
 
@@ -177,11 +166,7 @@ function startStage2() {
     buttonGo.setAttribute("id", "submitToNext");
     buttonGo.innerText = "AVANÇAR ->";
     buttonGo.addEventListener("click", (e) => {
-        if (!validate("form")) {
-            alert("Por favor, preencha todos os campos corretamente antes de avançar.");
-            return;
-        }
-        e.preventDefault();
+        e.preventDefault();     
 
         if (time[0].gols == time[1].gols) {
             let buttonDisplay = document.getElementById("submitToNext");
@@ -236,8 +221,6 @@ function startStage2() {
                 startStage3();
             });
             form.appendChild(buttonGoIf)
-
-
         } else if (time[0].gols > time[1].gols) {
             Semi1Vencedor = time[0].name;
             emptyContainer();
@@ -284,13 +267,12 @@ function startStage3() {
     labelTime3.innerText = time[2].name;
     divTime3.appendChild(labelTime3);
     let inputGolsTime3 = document.createElement("input");
-    inputGolsTime3.setAttribute("id", "time1Semi");
+    inputGolsTime3.setAttribute("id", "time3Semi");
     inputGolsTime3.setAttribute("type", "number");
     inputGolsTime3.setAttribute("min", "0");
     inputGolsTime3.setAttribute("placeholder", "0");
     inputGolsTime3.addEventListener("change", () => {
         time[2].gols = inputGolsTime3.value;
-        activateButton(validate("form"));
     });
     divTime3.appendChild(inputGolsTime3);
 
@@ -303,17 +285,16 @@ function startStage3() {
     jogo2Semi.appendChild(divTime4);
 
     let labelTime4 = document.createElement("label");
-    labelTime4.setAttribute("for", "time2Semi");
+    labelTime4.setAttribute("for", "time4Semi");
     labelTime4.innerText = time[3].name;
     divTime4.appendChild(labelTime4);
     let inputGolsTime4 = document.createElement("input");
-    inputGolsTime4.setAttribute("id", "time2Semi");
+    inputGolsTime4.setAttribute("id", "time4Semi");
     inputGolsTime4.setAttribute("type", "number");
     inputGolsTime4.setAttribute("min", "0");
     inputGolsTime4.setAttribute("placeholder", "0");
     inputGolsTime4.addEventListener("change", () => {
         time[3].gols = inputGolsTime4.value;
-        activateButton(validate("form"));
     });
     divTime4.appendChild(inputGolsTime4);
 
@@ -321,19 +302,16 @@ function startStage3() {
     buttonGo.setAttribute("id", "submitToNext");
     buttonGo.innerText = "AVANÇAR ->";
     buttonGo.addEventListener("click", (e) => {
-        if (!validate("form")) {
-            alert("Por favor, preencha todos os campos corretamente antes de avançar.");
-            return;
-        }
-
+        e.preventDefault();
+        
         if (time[2].gols == time[3].gols) {
             let buttonDisplay = document.getElementById("submitToNext");
             buttonDisplay.style.display = "none";
-
+            
             let penaltJogo2 = document.createElement("div");
             penaltJogo2.setAttribute("class", "penaltJogo2");
             form.appendChild(penaltJogo2);
-
+            
             let penatTitle = document.createElement("h2");
             penatTitle.innerText = "DEU PÊNALTI!!";
             penaltJogo2.appendChild(penatTitle);
@@ -341,31 +319,30 @@ function startStage3() {
             let penaltSubtitle = document.createElement("p");
             penaltSubtitle.innerText = "Informe quem venceu nos penalts";
             penaltJogo2.appendChild(penaltSubtitle);
-
+            
             let vencedor = document.createElement("select");
             vencedor.setAttribute("id", "quemvenceu");
             penaltJogo2.appendChild(vencedor);
-
+            
             let optionPlaceholder = document.createElement("option");
             optionPlaceholder.setAttribute("value", "");
             optionPlaceholder.innerText = "Selecione uma opção"; 
             vencedor.appendChild(optionPlaceholder);
-
+            
             let option1 = document.createElement("option");
             option1.setAttribute("value", time[2].name);
             option1.innerText = time[2].name;
             vencedor.appendChild(option1);
-
+            
             let option2 = document.createElement("option");
             option2.setAttribute("value", time[3].name);
             option2.innerText = time[3].name;
             vencedor.appendChild(option2);
-
+            
             vencedor.addEventListener("change", () => {
                 Semi2Vencedor = vencedor.value;
-                activateButton(validate("form"));
             });
-
+            
             let buttonGoIf = document.createElement("button");
             buttonGoIf.setAttribute("id", "submitToNext");
             buttonGoIf.innerText = "AVANÇAR ->";
@@ -375,18 +352,13 @@ function startStage3() {
                 if (selectedOption === "") {
                     alert("Por favor, selecione uma opção antes de avançar.");
                     return;
-                }
-
-                if (!validate("form")) {
-                    alert("Por favor, Informe o time.");
-                    return;
-                }
+                }               
                 emptyContainer();
                 startStage4();
             });
             form.appendChild(buttonGoIf)
-
-
+            
+            
         } else if (time[2].gols > time[3].gols) {
             Semi2Vencedor = time[2].name;
             emptyContainer();
@@ -402,12 +374,16 @@ function startStage3() {
 
 let vencedorTorneio;
 
+
 function startStage4() {
+    time[0].gols=0;
+    time[1].gols=0;
+
     let card = document.getElementById("card");
     let cardContent = document.createElement("div");
     cardContent.setAttribute("id", "card-content");
     card.appendChild(cardContent);
-
+    
     let cardTitle = document.createElement("div");
     cardTitle.setAttribute("id", "card-title");
     cardContent.appendChild(cardTitle);
@@ -440,8 +416,7 @@ function startStage4() {
     inputGolsTime1Final.setAttribute("min", "0");
     inputGolsTime1Final.setAttribute("placeholder", "0");
     inputGolsTime1Final.addEventListener("change", () => {
-        time[0].gols = inputGolsTime1Final.value? inputGolsTime1Final.value : 0;
-        activateButton(validate("form"));
+        time[0].gols = inputGolsTime1Final.value;
     });
     divTime1Final.appendChild(inputGolsTime1Final);
 
@@ -463,19 +438,14 @@ function startStage4() {
     inputGolsTime2Final.setAttribute("min", "0");
     inputGolsTime2Final.setAttribute("placeholder", "0");
     inputGolsTime2Final.addEventListener("change", () => {
-        time[1].gols = inputGolsTime2Final.value? inputGolsTime2Final.value:0;
-        activateButton(validate("form"));
+        time[1].gols = inputGolsTime2Final.value;
     });
     divTime2Final.appendChild(inputGolsTime2Final);
 
     let buttonGo = document.createElement("button");
     buttonGo.setAttribute("id", "submitToNext");
     buttonGo.innerText = "AVANÇAR ->";
-    buttonGo.addEventListener("click", (e) => {
-        if (!validate("form")) {
-            alert("Por favor, preencha todos os campos corretamente antes de avançar.");
-            return;
-        }
+    buttonGo.addEventListener("click", (e) => {        
         e.preventDefault();
 
         if (time[0].gols == time[1].gols) {
@@ -516,7 +486,6 @@ function startStage4() {
 
             vencedor.addEventListener("change", () => {
                 vencedorTorneio = vencedor.value;
-                activateButton(validate("form"));
             });
 
             let buttonGoIf = document.createElement("button");
@@ -531,10 +500,6 @@ function startStage4() {
                     return;
                 }
 
-                if (!validate("form")) {
-                    alert("Por favor, Informe o time.");
-                    return;
-                }
                 emptyContainer();
                 startStage5();
             });
@@ -555,7 +520,16 @@ function startStage4() {
 }
 
 function startStage5(){
+    let vencedorColor;
+
+    for (let i = 0; i < time.length; i++){
+        if(time[i].name == vencedorTorneio){
+            vencedorColor = time[i].color;
+        }
+    }
+
     let card = document.getElementById("card");
+    card.style.borderColor = vencedorColor;
     let cardContent = document.createElement("div");
     cardContent.setAttribute("id", "card-content");
     card.appendChild(cardContent);
@@ -565,9 +539,11 @@ function startStage5(){
     cardContent.appendChild(cardTitle);
     let title = document.createElement("h2");
     title.innerText = "TIME VENCEDOR!";
+    title.style.color = vencedorColor;
     cardTitle.appendChild(title);
     let subTitle = document.createElement("p");
     subTitle.setAttribute("class", "timeVencedor");
     subTitle.innerText = vencedorTorneio;
+    subTitle.style.color = vencedorColor;
     cardTitle.appendChild(subTitle);
 }
