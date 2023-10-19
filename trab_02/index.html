@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Placar imáginário 2</title>
+</head>
+<body style="background-image: url(./images/arena.png);">
+    <h1>Placar imáginário 2</h1>
+    <div id="divMother">
+        <button id="clear-simulation-button">Limpar Simulação</button>
+        <div id="app">
+            <div class="participants">
+                <h2>Participantes</h2>
+                <input type="text" id="participant-input" placeholder="Nome do Participante">
+                <button id="register-button">Registrar Participante</button>
+                <ul id="participants-list"></ul>
+                </ul>
+            </div>
+            <div class="matches">
+                <button id="generate-matches-button">Gerar Partidas</button>
+                <h2>Partidas</h2>
+                <ul id="matches-list"></ul>
+            </div>            
+            <div class="standings">
+                <button id="calculate-points-button">Calcular Pontos</button>
+                <h2>Classificação</h2>
+                <ol id="standings-list"></ol>
+            </div>
+        </div>
+    </div>
+    <div id="modal-container">
+        <div id="modal">
+            <p id="modal-message"></p>
+            <button id="modal-close-button">Fechar</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
