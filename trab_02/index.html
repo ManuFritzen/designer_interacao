@@ -9,26 +9,26 @@
 <body style="background-image: url(./images/arena.png);">
     <h1>Placar imáginário 2</h1>
     <div id="divMother">
-        <button id="clear-simulation-button">Limpar Simulação</button>
         <div id="app">
             <div class="participants">
                 <h2>Participantes</h2>
                 <input type="text" id="participant-input" placeholder="Nome do Participante">
                 <button id="register-button">Registrar Participante</button>
                 <ul id="participants-list"></ul>
-                </ul>
-            </div>
-            <div class="matches">
-                <button id="generate-matches-button">Gerar Partidas</button>
-                <h2>Partidas</h2>
-                <ul id="matches-list"></ul>
-            </div>            
-            <div class="standings">
-                <button id="calculate-points-button">Calcular Pontos</button>
-                <h2>Classificação</h2>
-                <ol id="standings-list"></ol>
-            </div>
+            </ul>
         </div>
+        <div class="matches">
+            <h2>Partidas</h2>
+            <button id="generate-matches-button">Gerar Partidas</button>
+            <ul id="matches-list"></ul>
+        </div>            
+        <div class="standings">
+            <h2>Classificação</h2>
+            <button id="calculate-points-button">Calcular Pontos</button>
+            <ol id="standings-list"></ol>
+        </div>
+        <button id="clear-simulation-button">Limpar Simulação</button>
+    </div>
     </div>
     <div id="modal-container">
         <div id="modal">
