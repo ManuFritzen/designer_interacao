@@ -16,7 +16,7 @@ html {
   }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;    
     text-align: center;
     margin: 20px;
 }
@@ -28,8 +28,15 @@ body {
 }
 
 h1 {
+    font-family: 'Playpen Sans', cursive;
     color: white;
     margin-bottom: 25px;
+}
+
+img{
+    width: 20%;
+    margin-top: -30px;
+    
 }
 
 #app {
